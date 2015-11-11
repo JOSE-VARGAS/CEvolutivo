@@ -71,7 +71,7 @@ public class DnaDrawing {
 			DnaPolygon newPolygon = new DnaPolygon();
 			newPolygon.init();
 
-			int index = Tools.getRandomNumber(0, this.polygons.size());
+			int index = Tools.getRandomNumber(0, this.polygons.size()+1); //Se le hizo un cambio 
 
 			this.polygons.add(index, newPolygon);
 			setDirty();

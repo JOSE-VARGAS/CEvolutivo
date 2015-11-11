@@ -4,6 +4,7 @@ public class DnaPolygon {
 
 	public DnaBrush brush;
 	public LinkedList<DnaPoint> points;
+	int index = 1;
 
 	public void init()
 	{
