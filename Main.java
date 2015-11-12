@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String [] args) {
 		
 		String ruta = "data/ml.bmp";
-		AlgoritmoGenetico tem = new AlgoritmoGenetico(ruta,50,1);
+		AlgoritmoGenetico tem = new AlgoritmoGenetico(ruta,10000,1);
 		tem.init();
 		tem.eval(tem.img,tem.imgTemporal);
 		

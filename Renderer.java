@@ -19,5 +19,6 @@ public class Renderer {
 
 		g.setColor(new Color(polygon.brush.red, polygon.brush.green, polygon.brush.blue, polygon.brush.alpha));
 		g.drawPolygon(np);
+        g.fillPolygon(np);
 	}
 }

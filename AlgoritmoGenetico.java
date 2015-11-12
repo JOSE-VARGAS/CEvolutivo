@@ -26,25 +26,29 @@ public class AlgoritmoGenetico{
 
 		ImagenNegra temporal = actual.clone();
 		Graphics2D actualGrafico = temporal.genera();	//Maya Negra	
-		
+		int tem = 0;
 		DnaDrawing drawing = new DnaDrawing();
 		drawing.init();
-		Canvas x  = new Canvas(temporal.imgTemporal);   //Pintamos la imagen Negra
+        distanciaActual = eval(img,temporal.imgTemporal);
+        Canvas x  = new Canvas(temporal.imgTemporal);   //Pintamos la imagen Negra
+        
 		for(int i=0;i<iteraciones;i++){
-		try {
-            Thread.sleep(100);
-        } catch (InterruptedException ex) {
-        }
+		//try {
+          //  Thread.sleep(100);
+        //} catch (InterruptedException ex) {
+        //}
         Renderer.Render(drawing,actualGrafico,scale);
 		
-		int tem = eval(img,temporal.imgTemporal);
-		if(distanciaActual<tem&&distanciaActual>=0){
+		tem = eval(img,temporal.imgTemporal);
+		if(tem<distanciaActual){
 		distanciaActual = tem;
 		actual = temporal.clone();
-		System.out.println("Cambio con "+distanciaActual);
-		}
-
+		System.out.println("Error : "+distanciaActual+ " iteracion "+i);
 		x.repaint();
+        }
+        drawing.mutate();
+        
+		
 		
 		}
 	}
