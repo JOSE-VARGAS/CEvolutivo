@@ -6,6 +6,12 @@ public class Main {
 
 	public static void main(String [] args) {
 		
+		String ruta = "data/ml.bmp";
+		AlgoritmoGenetico tem = new AlgoritmoGenetico(ruta,50,1);
+		tem.init();
+		tem.eval(tem.img,tem.imgTemporal);
+		
+		/*
 		BufferedImage img = FileIO.readImage("data/ml.bmp");
 		BufferedImage imgTemporal = FileIO.readImage("data/ml.bmp");
 		ImagenNegra imgNegra = new ImagenNegra(imgTemporal);
@@ -26,6 +32,6 @@ public class Main {
 
 		x.repaint();
 		}
-        
+        */
 	}
 }

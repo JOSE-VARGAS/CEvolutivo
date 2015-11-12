@@ -4,11 +4,14 @@ import java.awt.Color;
 
 class ImagenNegra{
 
-	BufferedImage imgTemporal;
+	public BufferedImage imgTemporal;
 	
 	public ImagenNegra(BufferedImage imgTemporal){
 			this.imgTemporal = imgTemporal;	
 
+	}
+	public ImagenNegra(int ancho,int largo,int tipoImagen){
+		this.imgTemporal = new BufferedImage(ancho,largo,tipoImagen);	
 	}
 	public Graphics2D genera(){
 		Graphics2D g = imgTemporal.createGraphics();		
@@ -16,4 +19,16 @@ class ImagenNegra{
         g.fillRect(0, 0, imgTemporal.getHeight(),imgTemporal.getWidth());
         return g;
 	}
+	public ImagenNegra clone(){
+	ImagenNegra copia = new ImagenNegra(imgTemporal.getWidth(),imgTemporal.getHeight(),1);
+	int  rgb = 0;
+	for(int i=0;i<copia.imgTemporal.getWidth();i++)
+		for(int j=0;j<copia.imgTemporal.getHeight();j++){
+			rgb = imgTemporal.getRGB(j,i);
+			copia.imgTemporal.setRGB(j,i,rgb);
+		}
+
+	return copia;
+	}
+
 }
